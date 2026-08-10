@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in to your AURIGUL account or create a new one to track orders, save favourites and check out faster." />
+  <title>My Account — AURIGUL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>A</text></svg>" />
+</head>
+<body>
+
+  <div class="announcement"><div class="announcement__track">
+    <span>✦ Free delivery on all orders over Rs 5,000</span><span>✦ New Autumn Collection — now live</span><span>✦ Extra 10% off with code <strong>AURIGUL10</strong></span>
+    <span>✦ Free delivery on all orders over Rs 5,000</span><span>✦ New Autumn Collection — now live</span><span>✦ Extra 10% off with code <strong>AURIGUL10</strong></span>
+  </div></div>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <div class="nav__brand">
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button class="menu-ham" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <a href="index.html" class="logo">AURIGUL</a>
+      </div>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="shop.html" class="nav__link">Shop</a></li>
+        <li><a href="shop.html?cat=Women" class="nav__link">Women</a></li>
+        <li><a href="shop.html?cat=Men" class="nav__link">Men</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="icon-btn" id="searchOpen" aria-label="Search"><svg viewBox="0 0 24 24" width="21" height="21"><path d="M21 21l-4.35-4.35M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <a href="account.html" class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" width="21" height="21"><path d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <button class="icon-btn cart-btn" id="cartOpen" aria-label="Cart"><svg viewBox="0 0 24 24" width="21" height="21"><path d="M6 2l-2 4v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6l-2-4H6zM4 6h16M16 10a4 4 0 0 1-8 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="cart-count" id="cartCount">0</span></button>
+      </div>
+    </nav>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <p class="search-box__label">What are you looking for?</p>
+      <form class="search-box__form" onsubmit="return false;"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M21 21l-4.35-4.35M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><input type="text" placeholder="Search products…" /></form>
+    </div>
+    <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
+  </div>
+
+  <!-- Split auth: image left, form right -->
+  <section class="auth">
+    <div class="auth__media" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80')"></div>
+    <div class="auth__panel">
+
+      <!-- Sign In -->
+      <div class="auth__form" id="signinView">
+        <h2 class="auth__title">Sign In</h2>
+        <p class="auth__switch">Not a member yet? <button type="button" class="auth__link" id="toCreate">&#9656; Create Account</button></p>
+        <form id="signinForm" novalidate>
+          <div class="auth-field"><label for="siEmail">Email</label><input id="siEmail" type="email" autocomplete="email" required /></div>
+          <div class="auth-field"><label for="siPass">Password</label><input id="siPass" type="password" autocomplete="current-password" required /></div>
+          <a href="#" class="auth__forgot" id="forgotLink">Forgot your password?</a>
+          <button type="submit" class="auth-btn" id="signinBtn" disabled>Sign In</button>
+          <p class="auth-note" id="signinNote"></p>
+        </form>
+      </div>
+
+      <!-- Create Account -->
+      <div class="auth__form" id="createView" hidden>
+        <h2 class="auth__title">Create Account</h2>
+        <p class="auth__switch">Already a member? <button type="button" class="auth__link" id="toSignin">&#9656; Sign in</button></p>
+        <form id="createForm" novalidate>
+          <div class="auth-field"><label for="cFn">First name</label><input id="cFn" type="text" required /></div>
+          <div class="auth-field"><label for="cLn">Last name</label><input id="cLn" type="text" required /></div>
+          <div class="auth-field"><label for="cPhone">Phone</label><input id="cPhone" type="tel" required /></div>
+          <div class="auth-field"><label for="cEmail">Email</label><input id="cEmail" type="email" required /></div>
+          <div class="auth-field"><label for="cPass">Password</label><input id="cPass" type="password" required /></div>
+          <label class="auth-check">
+            <input type="checkbox" id="cAgree" />
+            <span>By signing up I agree to the <a href="terms.html">Terms and Conditions</a> and confirm that I have read and understood the <a href="privacy.html">Privacy Policy</a>.</span>
+          </label>
+          <button type="submit" class="auth-btn" id="createBtn" disabled>Create</button>
+          <p class="auth-note" id="createNote"></p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__grid container">
+      <div class="footer__brand">
+        <a href="index.html" class="logo logo--light">AURIGUL</a>
+        <p>Modern essentials, made to last. Designed in studio, crafted with care.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M16 3c.3 2.3 1.9 4 4 4.3V11c-1.6 0-3-.5-4-1.3v5.8a5.5 5.5 0 1 1-5.5-5.5c.3 0 .6 0 .9.1v3.2a2.3 2.3 0 1 0 1.6 2.2V3H16z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col"><h5>Shop</h5><a href="shop.html">New Arrivals</a><a href="shop.html?cat=Women">Women</a><a href="shop.html?cat=Men">Men</a><a href="shop.html?cat=Accessories">Accessories</a></div>
+      <div class="footer__col"><h5>Help</h5><a href="contact.html">Contact Us</a><a href="#">Shipping & Returns</a><a href="#">Size Guide</a><a href="#">FAQs</a></div>
+      <div class="footer__col"><h5>Company</h5><a href="about.html">Our Story</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a><a href="#">Careers</a></div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© <span id="year"></span> AURIGUL. All rights reserved.</p>
+      <div class="pay"><span>EASYPAISA</span><span>JAZZCASH</span><span>VISA</span><span>MASTERCARD</span><span>COD</span></div>
+    </div>
+  </footer>
+
+  <div class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__head"><h3>Your Cart (<span id="drawerCount">0</span>)</h3><button class="drawer__close" id="cartClose" aria-label="Close cart">&times;</button></div>
+    <div class="drawer__body" id="cartItems"></div>
+    <div class="drawer__foot">
+      <div class="drawer__subtotal"><span>Subtotal</span><strong id="cartTotal">Rs 0</strong></div>
+      <p class="drawer__ship">Shipping & taxes calculated at checkout.</p>
+      <button class="btn btn--dark btn--block" id="checkoutBtn">Checkout</button>
+      <button class="btn btn--ghost btn--block" id="continueBtn">Continue shopping</button>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js?v=4"></script>
+  <script>
+    (function () {
+      const $ = id => document.getElementById(id);
+      const emailOk = v => /\S+@\S+\.\S+/.test(v.trim());
+
+      // ----- Toggle Sign In <-> Create Account -----
+      const signinView = $("signinView"), createView = $("createView");
+      $("toCreate").addEventListener("click", () => { signinView.hidden = true;  createView.hidden = false; });
+      $("toSignin").addEventListener("click", () => { createView.hidden = true;  signinView.hidden = false; });
+
+      // ----- Sign In: enable button only when email + password are filled -----
+      const siEmail = $("siEmail"), siPass = $("siPass"), signinBtn = $("signinBtn");
+      const validSignin = () => { signinBtn.disabled = !(emailOk(siEmail.value) && siPass.value.length > 0); };
+      [siEmail, siPass].forEach(el => el.addEventListener("input", validSignin));
+
+      // ----- Create: enable only when all fields filled AND checkbox ticked -----
+      const cFn = $("cFn"), cLn = $("cLn"), cPhone = $("cPhone"), cEmail = $("cEmail"),
+            cPass = $("cPass"), cAgree = $("cAgree"), createBtn = $("createBtn");
+      const validCreate = () => {
+        createBtn.disabled = !(
+          cFn.value.trim() && cLn.value.trim() && cPhone.value.trim() &&
+          emailOk(cEmail.value) && cPass.value.length > 0 && cAgree.checked
+        );
+      };
+      [cFn, cLn, cPhone, cEmail, cPass].forEach(el => el.addEventListener("input", validCreate));
+      cAgree.addEventListener("change", validCreate);
+
+      // ----- Submits (demo — no backend) -----
+      $("signinForm").addEventListener("submit", e => {
+        e.preventDefault();
+        $("signinNote").textContent = "✓ You have been signed in successfully!";
+      });
+      $("createForm").addEventListener("submit", e => {
+        e.preventDefault();
+        $("createNote").textContent = "🎉 Your account has been created successfully!";
+      });
+      $("forgotLink").addEventListener("click", e => {
+        e.preventDefault();
+        $("signinNote").textContent = "A password-reset link would be emailed to you (demo).";
+      });
+    })();
+  </script>
+  <script src="js/chat.js?v=1"></script>
+</body>
+</html>

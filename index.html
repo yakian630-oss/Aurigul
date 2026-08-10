@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AURIGUL — modern essentials & timeless clothing. Shop the new season collection for women, men and accessories." />
+  <meta name="theme-color" content="#1a1a1a" />
+  <title>AURIGUL — Modern Essentials & Timeless Clothing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>A</text></svg>" />
+</head>
+<body>
+
+  <!-- ===== Announcement Bar ===== -->
+  <div class="announcement" id="announcement">
+    <div class="announcement__track">
+      <span>✦ Free delivery on all orders over Rs 5,000</span>
+      <span>✦ New Autumn Collection — now live</span>
+      <span>✦ Extra 10% off your first order with code <strong>AURIGUL10</strong></span>
+      <span>✦ Free delivery on all orders over Rs 5,000</span>
+      <span>✦ New Autumn Collection — now live</span>
+      <span>✦ Extra 10% off your first order with code <strong>AURIGUL10</strong></span>
+    </div>
+  </div>
+
+  <!-- ===== Header / Navbar ===== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <div class="nav__brand">
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <button class="menu-ham" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <a href="index.html" class="logo">AURIGUL</a>
+      </div>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html" class="nav__link active">Home</a></li>
+        <li><a href="shop.html" class="nav__link">Shop</a></li>
+        <li><a href="shop.html?cat=Women" class="nav__link">Women</a></li>
+        <li><a href="shop.html?cat=Men" class="nav__link">Men</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="searchOpen" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="21" height="21"><path d="M21 21l-4.35-4.35M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <a href="account.html" class="icon-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24" width="21" height="21"><path d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </a>
+        <button class="icon-btn cart-btn" id="cartOpen" aria-label="Cart">
+          <svg viewBox="0 0 24 24" width="21" height="21"><path d="M6 2l-2 4v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6l-2-4H6zM4 6h16M16 10a4 4 0 0 1-8 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ===== Search Overlay ===== -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <p class="search-box__label">What are you looking for?</p>
+      <form class="search-box__form" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M21 21l-4.35-4.35M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input type="text" placeholder="Search for dresses, shirts, jackets…" autocomplete="off" />
+      </form>
+      <div class="search-box__tags">
+        <span>Popular:</span>
+        <a href="shop.html">Linen shirts</a>
+        <a href="shop.html">Oversized tees</a>
+        <a href="shop.html">Denim</a>
+        <a href="shop.html">Knitwear</a>
+      </div>
+    </div>
+    <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
+  </div>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero__media">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80" alt="Model wearing the new AURIGUL collection" loading="eager" />
+    </div>
+    <div class="hero__content container">
+      <p class="hero__eyebrow reveal">Autumn / Winter 2026</p>
+      <h1 class="hero__title reveal">Timeless pieces,<br />made to be lived in.</h1>
+      <p class="hero__text reveal">Considered design and honest materials. Discover essentials crafted to move with you — season after season.</p>
+      <div class="hero__cta reveal">
+        <a href="shop.html" class="btn btn--dark">Shop the collection</a>
+        <a href="about.html" class="btn btn--ghost">Our story</a>
+      </div>
+    </div>
+    <a href="#new-arrivals" class="hero__scroll" aria-label="Scroll down">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ===== Marquee strip ===== -->
+  <div class="strip">
+    <div class="strip__track">
+      <span>Sustainably Sourced</span><span>✦</span>
+      <span>Free 7-Day Returns</span><span>✦</span>
+      <span>Ethically Made</span><span>✦</span>
+      <span>Nationwide Delivery</span><span>✦</span>
+      <span>Sustainably Sourced</span><span>✦</span>
+      <span>Free 7-Day Returns</span><span>✦</span>
+      <span>Ethically Made</span><span>✦</span>
+      <span>Nationwide Delivery</span><span>✦</span>
+    </div>
+  </div>
+
+  <!-- ===== Categories ===== -->
+  <section class="section container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Shop by category</p>
+      <h2 class="section__title">Find your fit</h2>
+    </div>
+    <div class="categories">
+      <a href="shop.html?cat=Women" class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Women's collection" loading="lazy" />
+        <div class="cat-card__body">
+          <h3>Women</h3>
+          <span class="cat-card__link">Explore →</span>
+        </div>
+      </a>
+      <a href="shop.html?cat=Men" class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=800&q=80" alt="Men's collection" loading="lazy" />
+        <div class="cat-card__body">
+          <h3>Men</h3>
+          <span class="cat-card__link">Explore →</span>
+        </div>
+      </a>
+      <a href="shop.html?cat=Accessories" class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=800&q=80" alt="Accessories collection" loading="lazy" />
+        <div class="cat-card__body">
+          <h3>Accessories</h3>
+          <span class="cat-card__link">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== New Arrivals (products) ===== -->
+  <section class="section container" id="new-arrivals">
+    <div class="section__head section__head--row reveal">
+      <div>
+        <p class="eyebrow">Just dropped</p>
+        <h2 class="section__title">New arrivals</h2>
+      </div>
+      <a href="shop.html" class="link-underline">View all products</a>
+    </div>
+
+    <div class="products" id="productGrid">
+      <!-- Products injected by JS -->
+    </div>
+  </section>
+
+  <!-- ===== Collection banner ===== -->
+  <section class="banner">
+    <div class="banner__media">
+      <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1400&q=80" alt="The essentials collection" loading="lazy" />
+    </div>
+    <div class="banner__content reveal">
+      <p class="eyebrow eyebrow--light">Limited edition</p>
+      <h2 class="banner__title">The Essentials Edit</h2>
+      <p class="banner__text">A tightly curated capsule of everyday staples in warm, earthy tones. Wear-anywhere pieces designed to layer and last.</p>
+      <a href="shop.html" class="btn btn--light">Shop the edit</a>
+    </div>
+  </section>
+
+  <!-- ===== Best sellers ===== -->
+  <section class="section container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Loved by you</p>
+      <h2 class="section__title">Best sellers</h2>
+    </div>
+    <div class="products" id="bestGrid"></div>
+  </section>
+
+  <!-- ===== Feature strip ===== -->
+  <section class="features container">
+    <div class="feature reveal">
+      <svg viewBox="0 0 24 24" width="30" height="30"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7M5.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h4>Free Delivery</h4>
+      <p>On all orders over Rs 5,000, across Pakistan.</p>
+    </div>
+    <div class="feature reveal">
+      <svg viewBox="0 0 24 24" width="30" height="30"><path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h4>Easy Returns</h4>
+      <p>7-day hassle-free return policy.</p>
+    </div>
+    <div class="feature reveal">
+      <svg viewBox="0 0 24 24" width="30" height="30"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4zM9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h4>Secure Payment</h4>
+      <p>Encrypted & protected checkout.</p>
+    </div>
+    <div class="feature reveal">
+      <svg viewBox="0 0 24 24" width="30" height="30"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h4>24/7 Support</h4>
+      <p>We're always here to help you.</p>
+    </div>
+  </section>
+
+  <!-- ===== Brand story ===== -->
+  <section class="story">
+    <div class="story__media reveal">
+      <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=1000&q=80" alt="Inside the AURIGUL atelier" loading="lazy" />
+    </div>
+    <div class="story__content reveal">
+      <p class="eyebrow">Our philosophy</p>
+      <h2 class="story__title">Made slowly, worn forever.</h2>
+      <p>AURIGUL began with a simple idea: clothing shouldn't cost the earth — or your comfort. We work with small, family-run mills and natural fibres to make pieces that feel as good as they look.</p>
+      <p>Every garment is designed to outlast trends and be repaired, not replaced. That's fashion we can all feel good about.</p>
+      <a href="about.html" class="link-underline">Read our full story</a>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="section container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Kind words</p>
+      <h2 class="section__title">What our customers say</h2>
+    </div>
+    <div class="testimonials">
+      <blockquote class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p>“The quality is unreal. I've worn my linen shirt to death and it still looks brand new. Easily my favourite brand now.”</p>
+        <footer>— Sara K.</footer>
+      </blockquote>
+      <blockquote class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p>“Finally, menswear that fits properly and doesn't fall apart. The fabric feels premium and shipping was lightning fast.”</p>
+        <footer>— Daniyal R.</footer>
+      </blockquote>
+      <blockquote class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p>“Beautiful, timeless pieces. You can tell every detail is considered. Customer service went above and beyond too.”</p>
+        <footer>— Aisha M.</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ===== Newsletter ===== -->
+  <section class="newsletter">
+    <div class="newsletter__inner reveal">
+      <h2>Join the AURIGUL circle</h2>
+      <p>Be first to know about new drops, private sales and 10% off your first order.</p>
+      <form class="newsletter__form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email address" required aria-label="Email address" />
+        <button type="submit" class="btn btn--dark">Subscribe</button>
+      </form>
+      <p class="newsletter__note" id="newsletterNote"></p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__grid container">
+      <div class="footer__brand">
+        <a href="index.html" class="logo logo--light">AURIGUL</a>
+        <p>Modern essentials, made to last. Designed in studio, crafted with care.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8a1 1 0 0 1 1-1z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M16 3c.3 2.3 1.9 4 4 4.3V11c-1.6 0-3-.5-4-1.3v5.8a5.5 5.5 0 1 1-5.5-5.5c.3 0 .6 0 .9.1v3.2a2.3 2.3 0 1 0 1.6 2.2V3H16z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2a10 10 0 0 0-4 19.2c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.5 1.9-2.5.9 0 1.3.7 1.3 1.5 0 .9-.6 2.2-.9 3.5-.2 1 .5 1.9 1.6 1.9 1.9 0 3.2-2.4 3.2-5.3 0-2.2-1.5-3.8-4.1-3.8a4.7 4.7 0 0 0-4.9 4.7c0 .9.3 1.5.7 2 .2.2.2.3.1.6l-.2.9c-.1.3-.3.4-.6.2-1.2-.5-1.8-1.9-1.8-3.5C6.4 8.6 8.3 6 12.3 6c3.2 0 5.4 2.3 5.4 4.8 0 3.3-1.8 5.8-4.6 5.8-.9 0-1.8-.5-2.1-1.1l-.6 2.3c-.2.8-.7 1.7-1.1 2.3A10 10 0 1 0 12 2z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h5>Shop</h5>
+        <a href="shop.html">New Arrivals</a>
+        <a href="shop.html?cat=Women">Women</a>
+        <a href="shop.html?cat=Men">Men</a>
+        <a href="shop.html?cat=Accessories">Accessories</a>
+        <a href="shop.html">Sale</a>
+      </div>
+      <div class="footer__col">
+        <h5>Help</h5>
+        <a href="contact.html">Contact Us</a>
+        <a href="#">Shipping & Returns</a>
+        <a href="#">Size Guide</a>
+        <a href="#">FAQs</a>
+        <a href="#">Track Order</a>
+      </div>
+      <div class="footer__col">
+        <h5>Company</h5>
+        <a href="about.html">Our Story</a>
+        <a href="#">Sustainability</a>
+        <a href="#">Careers</a>
+        <a href="#">Stores</a>
+        <a href="#">Press</a>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© <span id="year"></span> AURIGUL. All rights reserved.</p>
+      <div class="pay">
+        <span>EASYPAISA</span><span>JAZZCASH</span><span>VISA</span><span>MASTERCARD</span><span>COD</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Cart Drawer ===== -->
+  <div class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__head">
+      <h3>Your Cart (<span id="drawerCount">0</span>)</h3>
+      <button class="drawer__close" id="cartClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="drawer__body" id="cartItems"></div>
+    <div class="drawer__foot">
+      <div class="drawer__subtotal">
+        <span>Subtotal</span>
+        <strong id="cartTotal">Rs 0</strong>
+      </div>
+      <p class="drawer__ship">Shipping & taxes calculated at checkout.</p>
+      <button class="btn btn--dark btn--block" id="checkoutBtn">Checkout</button>
+      <button class="btn btn--ghost btn--block" id="continueBtn">Continue shopping</button>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js?v=4"></script>
+  <script src="js/chat.js?v=1"></script>
+</body>
+</html>
