@@ -106,10 +106,17 @@ h1,h2,h3,h4 { font-family: var(--serif); font-weight: 500; line-height: 1.12; le
 /* ---------- Header ---------- */
 .header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(250,248,244,.9);
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: box-shadow var(--t), border-color var(--t);
+}
+/* The tinted blur sits on a pseudo-element rather than on .header itself.
+   `backdrop-filter` makes an element the containing block for its
+   position:fixed descendants, which pinned the slide-in mobile menu inside
+   the 60px-tall header instead of letting it fill the screen. */
+.header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: rgba(250,248,244,.9);
+  backdrop-filter: blur(10px);
 }
 .header.scrolled { border-color: var(--line); box-shadow: 0 4px 24px rgba(0,0,0,.04); }
 .nav {
@@ -268,6 +275,20 @@ h1,h2,h3,h4 { font-family: var(--serif); font-weight: 500; line-height: 1.12; le
 .hero__cta .btn--ghost:hover { background: #fff; color: var(--ink); }
 /* Under this width the copy column reaches the edges — swipe and dots take over */
 @media (max-width: 760px) { .hero__arrow { display: none; } }
+
+/* The band's 2.43 ratio makes it shortest, relative to its copy, between 861px
+   and 1500px: the title hits its 4.6rem ceiling at ~1227px and wraps to three
+   lines, but the band is not yet tall enough to hold them, so the copy runs
+   through the scroll cue. Phones asking for the "Desktop site" land in this
+   range too. Tighten the copy here rather than stretching the band, which
+   would crop the artwork; above 1500px the band has grown enough for the
+   full-size type. */
+@media (min-width: 861px) and (max-width: 1500px) {
+  .hero__slide   { padding-bottom: 104px; }
+  .hero__eyebrow { margin-bottom: 14px; }
+  .hero__title   { font-size: clamp(2.2rem, 4.6vw, 3.4rem); margin-bottom: 16px; }
+  .hero__text    { font-size: .98rem; margin-bottom: 26px; }
+}
 .hero__scroll { position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%); z-index: 3; width: 26px; height: 42px; border: 1.5px solid rgba(255,255,255,.6); border-radius: 14px; display: grid; justify-items: center; padding-top: 8px; }
 @media (max-width: 600px) { .hero__scroll { display: none; } }
 .hero__scroll span { width: 3px; height: 8px; background: #fff; border-radius: 3px; animation: scrolldot 1.6s infinite; }
