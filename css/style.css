@@ -740,7 +740,12 @@ h1,h2,h3,h4 { font-family: var(--serif); font-weight: 500; line-height: 1.12; le
   .nav__menu li { width: 100%; border-bottom: 1px solid var(--line); }
   .nav__link { display: block; padding: 16px 0; font-size: .95rem; }
   .nav__link::after { display: none; }
-  .nav__toggle { display: flex; order: -1; }
+  /* Mobile uses the same slide-in drawer as the desktop hamburger — the promo
+     header, the category accordion and the page links — instead of a second,
+     plainer menu. The old slide-in list is retired rather than left off-screen,
+     where it would still be reachable by keyboard. */
+  .nav__menu { display: none; }
+  .nav__toggle { display: none; }
   /* Mobile: keep the logo inline next to the hamburger on the LEFT.
      (Do NOT position:absolute here — that also broke the footer logo,
      which shares the .logo class, making it overlap the tagline.) */
@@ -757,9 +762,7 @@ h1,h2,h3,h4 { font-family: var(--serif); font-weight: 500; line-height: 1.12; le
   .contact { grid-template-columns: 1fr; gap: 40px; }
   .checkout { grid-template-columns: 1fr; gap: 34px; }
   .summary { position: static; }
-  /* On small screens the existing nav hamburger (navToggle) opens the
-     menu, so the desktop menu hamburger is hidden. */
-  .menu-ham { display: none; }
+  .menu-ham { display: inline-flex; }
 }
 
 @media (max-width: 600px) {
