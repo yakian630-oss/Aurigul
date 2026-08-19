@@ -65,24 +65,40 @@
   ];
 
   const FALLBACK = {
-    en: "I'm not fully sure about that 🤔 I can show products (try “show men”, “show dresses”, “jeans”), or help with delivery, payment, returns, sizes and offers.",
-    ur: "Mujhe is ka theek andaza nahi 🤔 Main products dikha sakta hoon (“show men”, “dresses dikhao”, “jeans”), ya delivery, payment, returns, sizes aur offers mein madad kar sakta hoon."
+    en: "I'm not fully sure about that 🤔 I can show products (try “show men”, “embroidered kurta”, “handbags”), or help with delivery, payment, returns, sizes and offers.",
+    ur: "Mujhe is ka theek andaza nahi 🤔 Main products dikha sakta hoon (“show men”, “kurta dikhao”, “handbags”), ya delivery, payment, returns, sizes aur offers mein madad kar sakta hoon."
   };
 
   /* ---------- Product search ---------- */
   const SYN = {
-    jean:["denim","jean","trouser","chino","pant"], jeans:["denim","jean","trouser","chino","pant"],
-    denim:["denim","jean"], pant:["trouser","chino","pant"], pants:["trouser","chino","pant"],
-    trouser:["trouser","chino","pant"], chino:["chino"],
-    shirt:["shirt"], tee:["tee","crew"], tshirt:["tee","crew"], "t-shirt":["tee","crew"],
-    top:["shirt","tee","knit","roll"], dress:["dress"], skirt:["skirt"],
-    jacket:["jacket","coat","blazer","puffer","vest"], coat:["coat","jacket"], blazer:["blazer"],
-    vest:["vest","puffer"], puffer:["puffer","vest"],
-    sweater:["sweater","knit","roll","merino"], knit:["knit","sweater"], jumper:["sweater","knit"],
-    hoodie:["sweater","knit"], sneaker:["sneaker"], sneakers:["sneaker"], shoe:["sneaker"], shoes:["sneaker"],
-    footwear:["sneaker"], bag:["bag"], hat:["hat"], cap:["hat"],
-    linen:["linen"], silk:["silk"], wool:["wool"], knitwear:["knit","sweater"]
+    /* Women */
+    kurta:["kurta","kurti"], kurti:["kurti","kurta"], suit:["suit"], suits:["suit"],
+    shirt:["shirt","kameez"], top:["blouse","shirt","kurti"], blouse:["blouse"], blouses:["blouse"],
+    dress:["kurta","suit","skirt"], skirt:["skirt"], skirts:["skirt"],
+    trouser:["trouser","pant","culotte"], trousers:["trouser","pant","culotte"],
+    pant:["trouser","pant","culotte"], pants:["trouser","pant","culotte"],
+    bottom:["trouser","pant","culotte","skirt"], bottoms:["trouser","pant","culotte","skirt"],
+    blazer:["blazer"], blazers:["blazer"], coat:["blazer"], jacket:["blazer"],
+    embroidered:["embroider","zari","chikankari","sequin"], embroidery:["embroider","zari","chikankari"],
+    kadhai:["embroider","zari"], zari:["zari"], chikankari:["chikankari"],
+    printed:["print"], print:["print"], lawn:["lawn"], floral:["floral"],
+    solid:["solid","plain"], plain:["solid","plain"],
+    /* Men */
+    kameez:["kameez","suit"], shalwar:["kameez","suit"],
+    bosky:["bosky"], khaddar:["khaddar"], cotton:["cotton"],
+    wash:["wash"], formal:["wash","bosky"], winter:["khaddar"], summer:["cotton","lawn"],
+    /* Accessories */
+    bag:["bag","tote","clutch","satchel"], bags:["bag","tote","clutch","satchel"],
+    handbag:["handbag","tote","shoulder","satchel"], purse:["clutch","handbag","wallet"],
+    clutch:["clutch"], tote:["tote"], vanity:["vanity"],
+    scarf:["scarf","stole","shawl"], scarves:["scarf","stole","shawl"],
+    dupatta:["scarf","stole","shawl"], stole:["stole"], shawl:["shawl","pashmina"],
+    wallet:["wallet","card holder","bifold"], wallets:["wallet","card holder","bifold"],
+    /* Fabrics */
+    silk:["silk"], linen:["linen"], chiffon:["chiffon"], velvet:["velvet"],
+    viscose:["viscose"], wool:["wool"], leather:["leather"], satin:["satin"]
   };
+
 
   function tryProductSearch(text) {
     const products = getProducts();
@@ -92,7 +108,7 @@
     let cat = null;
     if (/\b(wom[ae]n|womens|ladies|girl|female)\b/.test(q)) cat = "Women";
     else if (/\b(men|mens|man|male|gents|guys|mard)\b/.test(q)) cat = "Men";
-    else if (/\b(accessor\w*|bag|bags|hat|cap|shoe|shoes|sneaker\w*|footwear|belt)\b/.test(q)) cat = "Accessories";
+    else if (/\b(accessor\w*|bag|bags|handbag\w*|clutch\w*|purse|wallet\w*|scarf|scarves|dupatta|stole|shawl|vanity)\b/.test(q)) cat = "Accessories";
 
     const terms = [];
     for (const key in SYN) if (q.includes(key)) terms.push(...SYN[key]);
@@ -105,7 +121,10 @@
     if (cat) list = list.filter(p => p.cat === cat);
     if (terms.length) {
       const uniq = [...new Set(terms)];
-      list = list.filter(p => uniq.some(t => p.name.toLowerCase().includes(t)));
+      list = list.filter(p => {
+        const hay = (p.name + " " + (p.sub || "")).toLowerCase();
+        return uniq.some(t => hay.includes(t));
+      });
     }
 
     let intro;
@@ -158,7 +177,7 @@
     function addQuick() {
       const wrap = document.createElement("div");
       wrap.className = "chat-quick";
-      ["Show Women", "Show Men", "Delivery", "Payment", "Returns"].forEach(label => {
+      ["Show Women", "Show Men", "Handbags", "Delivery", "Payment", "Returns"].forEach(label => {
         const b = document.createElement("button");
         b.type = "button";
         b.textContent = label;
@@ -293,7 +312,7 @@
       if (!greeted) {
         greeted = true;
         setTimeout(() => {
-          addMsg("Hi! 👋 I'm the AURIGUL Assistant. Ask me to show products (e.g. “show men”, “dresses”, “jeans”), pick a few, and I'll total the price. I speak English, Urdu & Roman Urdu.", "bot");
+          addMsg("Hi! 👋 I'm the AURIGUL Assistant. Ask me to show products (e.g. “show men”, “embroidered kurta”, “handbags”), pick a few, and I'll total the price. I speak English, Urdu & Roman Urdu.", "bot");
           addQuick();
         }, 250);
       }

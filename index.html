@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=27" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>A</text></svg>" />
 </head>
 <body>
@@ -41,9 +41,9 @@
 
       <ul class="nav__menu" id="navMenu">
         <li><a href="index.html" class="nav__link active">Home</a></li>
-        <li><a href="shop.html" class="nav__link">Shop</a></li>
         <li><a href="shop.html?cat=Women" class="nav__link">Women</a></li>
         <li><a href="shop.html?cat=Men" class="nav__link">Men</a></li>
+        <li><a href="shop.html?cat=Accessories" class="nav__link">Accessories</a></li>
         <li><a href="about.html" class="nav__link">About</a></li>
         <li><a href="contact.html" class="nav__link">Contact</a></li>
       </ul>
@@ -75,29 +75,122 @@
       </form>
       <div class="search-box__tags">
         <span>Popular:</span>
-        <a href="shop.html">Linen shirts</a>
-        <a href="shop.html">Oversized tees</a>
-        <a href="shop.html">Denim</a>
-        <a href="shop.html">Knitwear</a>
+        <a href="shop.html?cat=Women&sub=embroidered">Embroidered</a>
+        <a href="shop.html?cat=Women&sub=printed">Printed lawn</a>
+        <a href="shop.html?cat=Men&sub=khaddar">Khaddar</a>
+        <a href="shop.html?cat=Accessories&sub=handbags">Handbags</a>
       </div>
     </div>
     <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
   </div>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="hero__media">
-      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80" alt="Model wearing the new AURIGUL collection" loading="eager" />
+  <!-- ===== Hero slider ===== -->
+  <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Featured collections">
+    <div class="hero__slides">
+      <article class="hero__slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 5">
+        <div class="hero__media">
+          <picture>
+            <source media="(max-width: 860px)" srcset="images/banners/home/home-01-m.webp" />
+            <img src="images/banners/home/home-01.webp" alt="Model wearing the new AURIGUL autumn collection" loading="eager" fetchpriority="high"  />
+          </picture>
+        </div>
+        <div class="hero__content container">
+          <p class="hero__eyebrow">Autumn / Winter 2026</p>
+          <h1 class="hero__title">Timeless pieces,<br />made to be lived in.</h1>
+          <p class="hero__text">Considered design and honest materials. Discover essentials crafted to move with you — season after season.</p>
+          <div class="hero__cta">
+            <a href="shop.html" class="btn btn--dark">Shop the collection</a>
+            <a href="about.html" class="btn btn--ghost">Our story</a>
+          </div>
+        </div>
+      </article>
+      <article class="hero__slide" role="group" aria-roledescription="slide" aria-label="2 of 5" aria-hidden="true">
+        <div class="hero__media">
+          <picture>
+            <source media="(max-width: 860px)" srcset="images/banners/home/home-02-m.webp" />
+            <img src="images/banners/home/home-02.webp" alt="Hand-embroidered kurta from the AURIGUL women's line" fetchpriority="low"  />
+          </picture>
+        </div>
+        <div class="hero__content container">
+          <p class="hero__eyebrow">Women · Embroidered</p>
+          <h1 class="hero__title">Thread by thread,<br />worked by hand.</h1>
+          <p class="hero__text">Panels embroidered over days, not minutes — the detail you notice long after the first wear.</p>
+          <div class="hero__cta">
+            <a href="shop.html?cat=Women&sub=embroidered" class="btn btn--dark">Shop embroidered</a>
+            <a href="shop.html?cat=Women" class="btn btn--ghost">All women</a>
+          </div>
+        </div>
+      </article>
+      <article class="hero__slide" role="group" aria-roledescription="slide" aria-label="3 of 5" aria-hidden="true">
+        <div class="hero__media">
+          <picture>
+            <source media="(max-width: 860px)" srcset="images/banners/home/home-03-m.webp" />
+            <img src="images/banners/home/home-03.webp" alt="Man wearing an AURIGUL khaddar kurta" fetchpriority="low"  />
+          </picture>
+        </div>
+        <div class="hero__content container">
+          <p class="hero__eyebrow">Men · Khaddar</p>
+          <h1 class="hero__title">Tailored to be<br />worn every day.</h1>
+          <p class="hero__text">Breathable khaddar, cut clean and finished properly. Built for the long season.</p>
+          <div class="hero__cta">
+            <a href="shop.html?cat=Men&sub=khaddar" class="btn btn--dark">Shop khaddar</a>
+            <a href="shop.html?cat=Men" class="btn btn--ghost">All men</a>
+          </div>
+        </div>
+      </article>
+      <article class="hero__slide" role="group" aria-roledescription="slide" aria-label="4 of 5" aria-hidden="true">
+        <div class="hero__media">
+          <picture>
+            <source media="(max-width: 860px)" srcset="images/banners/home/home-04-m.webp" />
+            <img src="images/banners/home/home-04.webp" alt="AURIGUL wash and wear shirting for men" fetchpriority="low"  />
+          </picture>
+        </div>
+        <div class="hero__content container">
+          <p class="hero__eyebrow">Men · Wash &amp; Wear</p>
+          <h1 class="hero__title">Crisp all day,<br />with no fuss.</h1>
+          <p class="hero__text">Wash-and-wear shirting that holds its shape from morning to last light. Easy care, sharp finish.</p>
+          <div class="hero__cta">
+            <a href="shop.html?cat=Men&sub=wash-and-wear" class="btn btn--dark">Shop wash &amp; wear</a>
+            <a href="shop.html?cat=Men" class="btn btn--ghost">All men</a>
+          </div>
+        </div>
+      </article>
+      <article class="hero__slide" role="group" aria-roledescription="slide" aria-label="5 of 5" aria-hidden="true">
+        <div class="hero__media">
+          <picture>
+            <source media="(max-width: 860px)" srcset="images/banners/home/home-05-m.webp" />
+            <img src="images/banners/home/home-05.webp" alt="AURIGUL leather handbag" fetchpriority="low"  />
+          </picture>
+        </div>
+        <div class="hero__content container">
+          <p class="hero__eyebrow">Accessories · Handbags</p>
+          <h1 class="hero__title">The piece that<br />finishes the look.</h1>
+          <p class="hero__text">Bags, scarves and small leather goods — quiet shapes that carry a whole outfit.</p>
+          <div class="hero__cta">
+            <a href="shop.html?cat=Accessories&sub=handbags" class="btn btn--dark">Shop handbags</a>
+            <a href="shop.html?cat=Accessories" class="btn btn--ghost">All accessories</a>
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="hero__content container">
-      <p class="hero__eyebrow reveal">Autumn / Winter 2026</p>
-      <h1 class="hero__title reveal">Timeless pieces,<br />made to be lived in.</h1>
-      <p class="hero__text reveal">Considered design and honest materials. Discover essentials crafted to move with you — season after season.</p>
-      <div class="hero__cta reveal">
-        <a href="shop.html" class="btn btn--dark">Shop the collection</a>
-        <a href="about.html" class="btn btn--ghost">Our story</a>
-      </div>
+
+    <div class="hero__dots" id="heroDots">
+        <button type="button" class="hero__dot is-active" data-go="0" aria-label="Go to slide 1"></button>
+        <button type="button" class="hero__dot" data-go="1" aria-label="Go to slide 2"></button>
+        <button type="button" class="hero__dot" data-go="2" aria-label="Go to slide 3"></button>
+        <button type="button" class="hero__dot" data-go="3" aria-label="Go to slide 4"></button>
+        <button type="button" class="hero__dot" data-go="4" aria-label="Go to slide 5"></button>
     </div>
+
+    <div class="hero__arrows">
+      <button type="button" class="hero__arrow" data-step="-1" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="hero__arrow" data-step="1" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
     <a href="#new-arrivals" class="hero__scroll" aria-label="Scroll down">
       <span></span>
     </a>
@@ -125,27 +218,36 @@
     </div>
     <div class="categories">
       <a href="shop.html?cat=Women" class="cat-card reveal">
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Women's collection" loading="lazy" />
+        <img src="images/women/printed/printed-01.webp" alt="Women's collection" loading="lazy" />
         <div class="cat-card__body">
           <h3>Women</h3>
           <span class="cat-card__link">Explore →</span>
         </div>
       </a>
       <a href="shop.html?cat=Men" class="cat-card reveal">
-        <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=800&q=80" alt="Men's collection" loading="lazy" />
+        <img src="images/men/wash-and-wear/wash-and-wear-01.webp" alt="Men's collection" loading="lazy" />
         <div class="cat-card__body">
           <h3>Men</h3>
           <span class="cat-card__link">Explore →</span>
         </div>
       </a>
       <a href="shop.html?cat=Accessories" class="cat-card reveal">
-        <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=800&q=80" alt="Accessories collection" loading="lazy" />
+        <img src="images/accessories/handbags/handbags-01.webp" alt="Accessories collection" loading="lazy" />
         <div class="cat-card__body">
           <h3>Accessories</h3>
           <span class="cat-card__link">Explore →</span>
         </div>
       </a>
     </div>
+  </section>
+
+  <!-- ===== Shop by collection (subcategories) ===== -->
+  <section class="section container" id="collections">
+    <div class="section__head reveal">
+      <p class="eyebrow">Every edit</p>
+      <h2 class="section__title">Shop by collection</h2>
+    </div>
+    <div class="subcats" id="subcatGrid"><!-- Subcategories injected by JS --></div>
   </section>
 
   <!-- ===== New Arrivals (products) ===== -->
@@ -166,7 +268,7 @@
   <!-- ===== Collection banner ===== -->
   <section class="banner">
     <div class="banner__media">
-      <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1400&q=80" alt="The essentials collection" loading="lazy" />
+      <img src="images/women/blazers/blazers-01.webp" alt="The essentials collection" loading="lazy" />
     </div>
     <div class="banner__content reveal">
       <p class="eyebrow eyebrow--light">Limited edition</p>
@@ -212,7 +314,7 @@
   <!-- ===== Brand story ===== -->
   <section class="story">
     <div class="story__media reveal">
-      <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=1000&q=80" alt="Inside the AURIGUL atelier" loading="lazy" />
+      <img src="images/men/khaddar/khaddar-01.webp" alt="Inside the AURIGUL atelier" loading="lazy" />
     </div>
     <div class="story__content reveal">
       <p class="eyebrow">Our philosophy</p>
@@ -332,7 +434,7 @@
   <!-- Toast -->
   <div class="toast" id="toast"></div>
 
-  <script src="js/main.js?v=4"></script>
-  <script src="js/chat.js?v=1"></script>
+  <script src="js/main.js?v=27"></script>
+  <script src="js/chat.js?v=27"></script>
 </body>
 </html>
